@@ -1,5 +1,6 @@
 # coding: utf-8
 # license: GPLv3
+import numpy as np
 
 from solar_objects import Star, Planet
 
@@ -43,8 +44,14 @@ def parse_star_parameters(line, star):
     **line** — строка с описание звезды.
     **star** — объект звезды.
     """
-
-    pass  # FIXME: not done yet
+    params = line.split()
+    star.R = float(params[1])
+    star.color = params[2]
+    star.m = float(params[3])
+    star.pos[0] = float(params[4])
+    star.pos[1] = float(params[5])
+    star.vel[0] = float(params[6])
+    star.vel[1] = float(params[7])
 
 def parse_planet_parameters(line, planet):
     """Считывает данные о планете из строки.
@@ -61,7 +68,14 @@ def parse_planet_parameters(line, planet):
     **line** — строка с описание планеты.
     **planet** — объект планеты.
     """
-    pass  # FIXME: not done yet...
+    params = line.split()
+    planet.R = float(params[1])
+    planet.color = params[2]
+    planet.m = float(params[3])
+    planet.pos[0] = float(params[4])
+    planet.pos[1] = float(params[5])
+    planet.vel[0] = float(params[6])
+    planet.vel[1] = float(params[7])
 
 
 def write_space_objects_data_to_file(output_filename, space_objects):
